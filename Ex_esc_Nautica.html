@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let idioma = localStorage.getItem("idioma") || "es";
+            cambiarIdioma(idioma);
+        });
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem("idioma", idioma);
+            
+            document.querySelectorAll("[data-es]").forEach(el => {
+                el.innerText = idioma === "es" ? el.getAttribute("data-es") : el.getAttribute("data-en");
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <button class="idioma1" onclick="cambiarIdioma('es')">Español</button>
+    <button class="idioma2" onclick="cambiarIdioma('en')">English</button>
+    <style>
+        body{
+            text-align: center;
+        }
+        .idioma1, .idioma2 {
+            width: 60px;
+            height: 30px;
+            border: none;
+            background-size: cover;
+            cursor: pointer;
+            margin: 20px 70px; /* Espacio entre botones */
+        }
+        .idioma1 {
+            background-image: url('img/Banderas/Band_mex.webp');
+        }
+        .idioma2 {
+            background-image: url('img/Banderas/Band_EU.png');
+        }
+        .boton-maps {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: blue;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        /* Efecto de onda */
+        .boton-maps::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+            opacity: 0;
+        }
+
+        .boton-maps:active::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+        img{
+            width: 250px;
+            height: 200px; 
+        }
+    </style>
+    <h1 data-es="Ex escuela nautica" data-en="Former nautical school">
+        Ex escuela náutica</h1>
+    <h3 data-es="Fue el 24 de febrero de 1822 cuando se instaló en el Puerto de Campeche la primera Escuela Náutica Mercante 
+        de la República Mexicana. Campeche ha adquirido importancia histórica en el contexto de la educación náutica y 
+        marina en México, por que es el sitio geográfico donde tuvo origen, por primera vez, el espíritu para la 
+        formación de hombres de mar, existe en esta capital y puerto, específicamente en el Instituto Campechano, 
+        una placa conmemorativa que rinde homenaje y destaca la presencia del lugar exacto donde se estableció la 
+        Escuela Náutica. Su permanencia generó una lucha constante por las guerras que vivía nuestro país; a continuación 
+        se reflejaron mayores éxitos como la aprobación del Congreso Local de Yucatán, el 31 de octubre de 1840, 
+        las aperturas se combinaron con sus cierres en la Escuela, sin embargo, de la Náutica de Campeche egresaron 
+        destacados marinos mercantes, entre otros, Fernando Siliceo y Torres, Fernando Tenyado, Rofo Sada, Alberto Fraga, 
+        Aurelio Jiménez, Lorenzo Martines Alomía, José del C. Cepeda, José del C. Alfaro, Ángel Jolly Fernández y 
+        José Onofre Vargas." data-en="It was on February 24, 1822, that the first Merchant Nautical School in the Mexican Republic was established in the Port of Campeche. Campeche has acquired historical importance in the context of nautical and marine education in Mexico because it is the geographic location where the spirit for the training of seamen first originated. There is a commemorative plaque in this capital and port, specifically at the Campeche Institute, that pays tribute and highlights the exact location where the Nautical School was established. Its permanence generated a constant struggle due to the wars our country experienced. The following
+        Fue el 24 de febrero de 1822 cuando se instaló en el Puerto de Campeche la primera Escuela Náutica Mercante 
+        de la República Mexicana. Campeche ha adquirido importancia histórica en el contexto de la educación náutica y 
+        marina en México, por que es el sitio geográfico donde tuvo origen, por primera vez, el espíritu para la 
+        formación de hombres de mar, existe en esta capital y puerto, específicamente en el Instituto Campechano, 
+        una placa conmemorativa que rinde homenaje y destaca la presencia del lugar exacto donde se estableció la 
+        Escuela Náutica. Su permanencia generó una lucha constante por las guerras que vivía nuestro país; a continuación 
+        se reflejaron mayores éxitos como la aprobación del Congreso Local de Yucatán, el 31 de octubre de 1840, 
+        las aperturas se combinaron con sus cierres en la Escuela, sin embargo, de la Náutica de Campeche egresaron 
+        destacados marinos mercantes, entre otros, Fernando Siliceo y Torres, Fernando Tenyado, Rofo Sada, Alberto Fraga, 
+        Aurelio Jiménez, Lorenzo Martines Alomía, José del C. Cepeda, José del C. Alfaro, Ángel Jolly Fernández y 
+        José Onofre Vargas.">
+    </h3>
+    
+    <header>
+        <img src="img/Escuela_Nautica/Esc_Nau.gif">
+        </header><br><br>
+        <a href="https://maps.app.goo.gl/1JCEpBcRAQ3PxN619" class="boton-maps">
+        <button data-es="ir" data-en="Go">ir</button>
+        </a><br>
+        <a href="R_Peatonal.html" class="boton-maps">
+        <button data-es="sitios relevantes" data-en="relevant">sitios relevantes</button>
+        </a>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let idioma = localStorage.getItem("idioma") || "es";
+            cambiarIdioma(idioma);
+        });
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem("idioma", idioma);
+            
+            document.querySelectorAll("[data-es]").forEach(el => {
+                el.innerText = idioma === "es" ? el.getAttribute("data-es") : el.getAttribute("data-en");
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <button class="idioma1" onclick="cambiarIdioma('es')">Español</button>
+    <button class="idioma2" onclick="cambiarIdioma('en')">English</button>
+    <style>
+        body{
+            text-align: center;
+        }
+        .idioma1, .idioma2 {
+            width: 60px;
+            height: 30px;
+            border: none;
+            background-size: cover;
+            cursor: pointer;
+            margin: 20px 70px; /* Espacio entre botones */
+        }
+        .idioma1 {
+            background-image: url('img/Banderas/Band_mex.webp');
+        }
+        .idioma2 {
+            background-image: url('img/Banderas/Band_EU.png');
+        }
+        .boton-maps {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: blue;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        /* Efecto de onda */
+        .boton-maps::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+            opacity: 0;
+        }
+
+        .boton-maps:active::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+        img{
+            width: 250px;
+            height: 200px; 
+        }
+    </style>
+    <h1 data-es="Cañon Guardacantón" data-en="Guardacantón Canyon">
+        Cañon Guardacantón</h1>
+    <h3 data-es="Se trata de cañones de avancarga (la carga se realizaba por la boca), 
+        en hierro fundido, y en algunos pueden verse los muñones para colocarlos sobre un soporte (afuste o cureña) 
+        lo que facilitaba su disparo. Se empleaban indistintamente a bordo de los buques o en tierra, 
+        variando solamente la forma del montaje, su cureña.
+        La función de estas piezas, ya en desuso, procedentes de pecios marinos o de desguaces de buques y cañoneras, 
+        era la de resguardar las esquinas de los edificios del paso de los carruajes, evitando que al chocar las ruedas 
+        produjesen daños. Su uso perduró hasta que comenzaron a urbanizarse las calles con aceras, 
+        separando así las ruedas de las fachadas" data-en="These are muzzle-loading cannons (loaded through the muzzle),
+        Se trata de cañones de avancarga (la carga se realizaba por la boca), 
+        en hierro fundido, y en algunos pueden verse los muñones para colocarlos sobre un soporte (afuste o cureña) 
+        lo que facilitaba su disparo. Se empleaban indistintamente a bordo de los buques o en tierra, 
+        variando solamente la forma del montaje, su cureña.
+        La función de estas piezas, ya en desuso, procedentes de pecios marinos o de desguaces de buques y cañoneras, 
+        era la de resguardar las esquinas de los edificios del paso de los carruajes, evitando que al chocar las ruedas 
+        produjesen daños. Su uso perduró hasta que comenzaron a urbanizarse las calles con aceras, 
+        separando así las ruedas de las fachadas">
+    </h3>
+    <header>
+        <img src="img/Cañon_Guardacanton/Guardacanton2.jpeg">
+        <img src="img/Cañon_Guardacanton/Guardacanton3.jpeg">
+        </header><br><br>
+        <a href="R_Peatonal.html" class="boton-maps">
+        <button data-es="sitios relevantes" data-en="relevant sites">sitios relevantes</button>
+        </a>
+</body>
+</html>

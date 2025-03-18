@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let idioma = localStorage.getItem("idioma") || "es";
+            cambiarIdioma(idioma);
+        });
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem("idioma", idioma);
+            
+            document.querySelectorAll("[data-es]").forEach(el => {
+                el.innerText = idioma === "es" ? el.getAttribute("data-es") : el.getAttribute("data-en");
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <button class="idioma1" onclick="cambiarIdioma('es')">Español</button>
+    <button class="idioma2" onclick="cambiarIdioma('en')">English</button>
+    <style>
+        body{
+            text-align: center;
+        }
+        .idioma1, .idioma2 {
+            width: 60px;
+            height: 30px;
+            border: none;
+            background-size: cover;
+            cursor: pointer;
+            margin: 20px 70px; /* Espacio entre botones */
+        }
+        .idioma1 {
+            background-image: url('img/Banderas/Band_mex.webp');
+        }
+        .idioma2 {
+            background-image: url('img/Banderas/Band_EU.png');
+        }
+        .boton-maps {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: blue;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        /* Efecto de onda */
+        .boton-maps::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+            opacity: 0;
+        }
+
+        .boton-maps:active::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+        img{
+            width: 250px;
+            height: 200px; 
+        }
+    </style>
+    <h1 data-es="Ex aduana maritima" data-en="Former maritime customs">
+        Ex aduana maritima</h1>
+    <h3 data-es="Es durante el año 2000 que se inicia la construcción de la Biblioteca Campeche con la intención de rescatar su 
+        estructura y recuperar parte del antiguo esplendor; esta se edifica en el costado norte de la plaza de la 
+        independencia del centro histórico de la ciudad de Campeche, un inmueble con las mismas proporciones y 
+        dimensiones del que ocupó la casa de cabildo desde el siglo XVIII. De esta manera, la reconstrucción de la 
+        casa de cabildo es una obra contemporánea insertada en un tejido urbano antiguo que debió atenerse a la 
+        organización urbana preexistente, respetando el parcelario histórico y congruente en el entorno circundante, 
+        mediante las características arquitectónicas de proporción, escala, materiales, color y ornamentarlos del 
+        ambiente urbano. Todo ello con dos objetivos específicos crear un espacio de riqueza cultural y tecnológica 
+        encauzada a la comunidad campechana, es así que un jueves 5 de Junio de 2003 que la biblioteca Campeche 
+        abre sus puertas" data-en="It was in 2000 that construction began on the Campeche Library with the intention of 
+        rescuing its structure and recovering some of its former splendor. It was built on the north side of Independence 
+        Square in the historic center of Campeche City, a building with the same proportions and dimensions as the one 
+        that had housed the town hall since the 18th century. Thus, the reconstruction of the town hall is a contemporary 
+        work inserted into an old urban fabric that had to adhere to the pre-existing urban layout, respecting the 
+        historic plot layout and blending into the surrounding environment through the architectural characteristics of 
+        proportion, scale, materials, color, and ornamentation of the urban environment. All of this was done with two 
+        specific objectives: to create a space of cultural and technological wealth geared toward the community of Campeche. 
+        Thus, on Thursday, June 5, 2003, the Campeche Library opened its doors.">
+        Es durante el año 2000 que se inicia la construcción de la Biblioteca Campeche con la intención de rescatar su 
+        estructura y recuperar parte del antiguo esplendor; esta se edifica en el costado norte de la plaza de la 
+        independencia del centro histórico de la ciudad de Campeche, un inmueble con las mismas proporciones y 
+        dimensiones del que ocupó la casa de cabildo desde el siglo XVIII. De esta manera, la reconstrucción de la 
+        casa de cabildo es una obra contemporánea insertada en un tejido urbano antiguo que debió atenerse a la 
+        organización urbana preexistente, respetando el parcelario histórico y congruente en el entorno circundante, 
+        mediante las características arquitectónicas de proporción, escala, materiales, color y ornamentarlos del 
+        ambiente urbano. Todo ello con dos objetivos específicos crear un espacio de riqueza cultural y tecnológica 
+        encauzada a la comunidad campechana, es así que un jueves 5 de Junio de 2003 que la biblioteca Campeche 
+        abre sus puertas
+    </h3>
+<header>
+<img src="img/Aduana_Nautica/Aduana3.jpeg">
+<img src="img/Aduana_Nautica/Aduana2.jpeg">
+</header><br><br>
+<a href="https://maps.app.goo.gl/gg2UT1W3gGgur3Y59" class="boton-maps">
+<button data-es="ir" data-en="Go">ir</button>
+</a><br><br>
+<a href="R_Peatonal.html" class="boton-maps">
+<button data-es="sitios relevantes" data-en="relevant sites">sitios relevantes</button>
+</a>
+</body>
+</html>

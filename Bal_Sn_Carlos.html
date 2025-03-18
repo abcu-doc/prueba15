@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let idioma = localStorage.getItem("idioma") || "es";
+            cambiarIdioma(idioma);
+        });
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem("idioma", idioma);
+            
+            document.querySelectorAll("[data-es]").forEach(el => {
+                el.innerText = idioma === "es" ? el.getAttribute("data-es") : el.getAttribute("data-en");
+            });
+        }
+    </script>
+</head>
+<body>
+    <button class="idioma1" onclick="cambiarIdioma('es')">Español</button>
+    <button class="idioma2" onclick="cambiarIdioma('en')">English</button>
+    <style>
+        body{
+            text-align: center;
+        }
+        .idioma1, .idioma2 {
+            width: 60px;
+            height: 30px;
+            border: none;
+            background-size: cover;
+            cursor: pointer;
+            margin: 20px 70px; /* Espacio entre botones */
+        }
+        .idioma1 {
+            background-image: url('img/Banderas/Band_mex.webp');
+        }
+        .idioma2 {
+            background-image: url('img/Banderas/Band_EU.png');
+        }
+        .boton-maps {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: blue;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        /* Efecto de onda */
+        .boton-maps::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+            opacity: 0;
+        }
+
+        .boton-maps:active::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+        img{
+            width: 250px;
+            height: 200px; 
+        }
+    </style>
+    <h1 data-es="Baluarte San Carlos" data-en="San Carlos Bastion">
+        Baluarte San Carlos</h1>
+    <h3 data-es=" El Baluarte de San Carlos, fue el primero en ser construido como parte del sistema fortificado de San Francisco de Campeche. 
+        Al igual que los otros baluartes presenta una forma pentagonal. 
+        Su entrada principal es por medio de una rampa situada del lado de la calle 8.
+        El nombre de este baluarte fue dado en honor al rey Carlos II.
+        Posee un sótano con dos habitaciones que fungían como cuartos de pólvora o como cárcel.
+        En este recinto se puede observar un aljibe y un silo que funcionaba como purguero y en donde se castigaba 
+        a los prisioneros. En el siglo XIX alojó a tropas locales.
+        Aloja al Museo de la Ciudad." data-en="The San Carlos Bastion was the first to be built as part of the fortified system of San Francisco de Campeche.
+        Like the other bastions, it has a pentagonal shape.
+        Its main entrance is via a ramp located on the 8th Street side.
+        This bastion was named in honor of King Carlos II.
+        It has a basement with two rooms that served as gunpowder rooms or as a jail.
+        In this enclosure, you can see a cistern and a silo that served as a purge and where prisoners were punished.
+        In the 19th century, it housed local troops.
+        It houses the City Museum.">
+        El Baluarte de San Carlos, fue el primero en ser construido como parte del sistema fortificado de San Francisco de Campeche. 
+        Al igual que los otros baluartes presenta una forma pentagonal. 
+        Su entrada principal es por medio de una rampa situada del lado de la calle 8.
+        El nombre de este baluarte fue dado en honor al rey Carlos II.
+        Posee un sótano con dos habitaciones que fungían como cuartos de pólvora o como cárcel.
+        En este recinto se puede observar un aljibe y un silo que funcionaba como purguero y en donde se castigaba 
+        a los prisioneros. En el siglo XIX alojó a tropas locales.
+        Aloja al Museo de la Ciudad.</h3>
+    <header>
+        <img src="img/San_Carlos/San_Carlos2.jpeg">
+        <img src="img/San_Carlos/San_Carlos3.jpeg">
+        </header><br><br>
+        <a href="https://maps.app.goo.gl/F1HYfk9LFKGzUMNq6" class="boton-maps">
+        <button data-es="ir" data-en="Go">ir</button>
+        </a><br>
+        <a href="R_Peatonal.html" class="boton-maps">
+        <button data-es="sitios relevates" data-en="relevant sites">sitios relevantes</button>
+        </a>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let idioma = localStorage.getItem("idioma") || "es";
+            cambiarIdioma(idioma);
+        });
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem("idioma", idioma);
+            
+            document.querySelectorAll("[data-es]").forEach(el => {
+                el.innerText = idioma === "es" ? el.getAttribute("data-es") : el.getAttribute("data-en");
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <button class="idioma1" onclick="cambiarIdioma('es')">Español</button>
+    <button class="idioma2" onclick="cambiarIdioma('en')">English</button>
+    <style>
+        body{
+            text-align: center;
+        }
+        .idioma1, .idioma2 {
+            width: 60px;
+            height: 30px;
+            border: none;
+            background-size: cover;
+            cursor: pointer;
+            margin: 20px 70px; /* Espacio entre botones */
+        }
+        .idioma1 {
+            background-image: url('img/Banderas/Band_mex.webp');
+        }
+        .idioma2 {
+            background-image: url('img/Banderas/Band_EU.png');
+        }
+        .boton-maps {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: blue;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        /* Efecto de onda */
+        .boton-maps::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+            opacity: 0;
+        }
+
+        .boton-maps:active::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+        img{
+            width: 250px;
+            height: 200px; 
+        }
+    </style>
+    <h1 data-es="Cañon de bronce" data-en="Bronze cannon">
+        Cañon de bronce</h1>
+    <h3 data-es="La Puerta de Tierra, ícono del recinto amurallado de Campeche, alberga un cañón de bronce del siglo XVIII, 
+        hallado en 1989 a 1 milla náutica de Lerma. Este cañón fue descubierto a unos 3 brazas de profundidad, 
+        parcialmente cubierto de arena. Gracias a pescadores y autoridades de la Capitanía de Puerto, 
+        el cañón fue entregado al INAH para su restauración, siendo develado en 1990 durante el 450 aniversario de la fundación de San Francisco de Campeche. 
+        En 2008, el cañón fue inscrito en el “Catálogo de Bienes Culturales Muebles Metálicos” del INAH para su estudio y conservación.
+        La pieza, con la cifra “1732” grabada, corresponde a un cañón de la Tercera Época, diseñado por el Rey Felipe V de España. 
+        Tiene una longitud de 3.42 metros y un diámetro de 16.2 centímetros, adornado con motivos fitomorfos. 
+        Muestra un escudo de doble cartela, simbolizando la unión de las casas Borbón-Farnesio, 
+        con elementos heráldicos de España y referencias al Ducado de Parma. 
+        La inscripción en latín en la banda inferior recuerda a Felipe V e Isabel de Farnesio como figuras clave de la época." data-en="The Puerta de Tierra, an icon of Campeche's walled enclosure, houses an 18th-century bronze cannon,
+        found in 1989, 1 nautical mile from Lerma. This cannon was discovered at a depth of about 3 fathoms,
+        partially covered in sand. Thanks to fishermen and authorities from the Harbor Master's Office,
+        the cannon was handed over to the INAH for restoration, and was unveiled in 1990 during the 450th anniversary of the founding of San Francisco de Campeche.
+        In 2008, the cannon was registered in the INAH's Catalog of Movable Metal Cultural Assets for study and conservation.
+        The piece, engraved with the number 1732, corresponds to a Third Period cannon, designed by King Philip V of Spain.
+        It is 3.42 meters long and 16.2 centimeters in diameter, adorned with phytomorphic motifs. It features a double-cartouched shield, symbolizing the union of the Bourbon-Farnese houses,
+        with heraldic elements of Spain and references to the Duchy of Parma.
+        The Latin inscription in the lower band recalls Philip V and Isabella Farnese as key figures of the period.">
+        La Puerta de Tierra, ícono del recinto amurallado de Campeche, alberga un cañón de bronce del siglo XVIII, 
+        hallado en 1989 a 1 milla náutica de Lerma. Este cañón fue descubierto a unos 3 brazas de profundidad, 
+        parcialmente cubierto de arena. Gracias a pescadores y autoridades de la Capitanía de Puerto, 
+        el cañón fue entregado al INAH para su restauración, siendo develado en 1990 durante el 450 aniversario de la fundación de San Francisco de Campeche. 
+        En 2008, el cañón fue inscrito en el “Catálogo de Bienes Culturales Muebles Metálicos” del INAH para su estudio y conservación.
+        La pieza, con la cifra “1732” grabada, corresponde a un cañón de la Tercera Época, diseñado por el Rey Felipe V de España. 
+        Tiene una longitud de 3.42 metros y un diámetro de 16.2 centímetros, adornado con motivos fitomorfos. 
+        Muestra un escudo de doble cartela, simbolizando la unión de las casas Borbón-Farnesio, 
+        con elementos heráldicos de España y referencias al Ducado de Parma. 
+        La inscripción en latín en la banda inferior recuerda a Felipe V e Isabel de Farnesio como figuras clave de la época.
+        </h3>
+
+        <header>
+            <img src="img/Cañon_Bronce/Cañon_Bronce1.jpeg">
+            <img src="img/Cañon_Bronce/Cañon_Bronce.jpeg">
+            </header><br><br>
+            <a href="https://maps.app.goo.gl/uUUSp4bboPdSGV7i6" class="boton-maps">
+            <button data-es="ir" data-en="Go">ir</button>
+            </a><br>
+            <a href="R_Peatonal.html" class="boton-maps">
+            <button data-es="sitios relevantes" data-en="relevant sites">sitios relevantes</button>
+            </a>
+</body>
+</html>

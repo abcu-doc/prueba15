@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let idioma = localStorage.getItem("idioma") || "es";
+            cambiarIdioma(idioma);
+        });
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem("idioma", idioma);
+            
+            document.querySelectorAll("[data-es]").forEach(el => {
+                el.innerText = idioma === "es" ? el.getAttribute("data-es") : el.getAttribute("data-en");
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <button class="idioma1" onclick="cambiarIdioma('es')">Español</button>
+    <button class="idioma2" onclick="cambiarIdioma('en')">English</button>
+    <style>
+        body{
+            text-align: center;
+        }
+        .idioma1, .idioma2 {
+            width: 60px;
+            height: 30px;
+            border: none;
+            background-size: cover;
+            cursor: pointer;
+            margin: 20px 70px; /* Espacio entre botones */
+        }
+        .idioma1 {
+            background-image: url('img/Banderas/Band_mex.webp');
+        }
+        .idioma2 {
+            background-image: url('img/Banderas/Band_EU.png');
+        }
+        .boton-maps {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: blue;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        /* Efecto de onda */
+        .boton-maps::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+            opacity: 0;
+        }
+
+        .boton-maps:active::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+        img{
+            width: 250px;
+            height: 200px; 
+        }
+    </style>
+    <h1 data-es="Puerta de tierra" data-en="Ground gate">
+        Puerta de tierra</h1>
+    <h3 data-es="Fue construida en 1732 por Don Antonio de Figueroa y Silva. 
+        Se encuentra entre el baluarte de San Francisco y San Juan. 
+        Posee una enorme bóveda con dos habitaciones para el cuerpo de guardia y el cuarto de oficial. 
+        Sobre la bóveda se encuentra una pequeña plaza de armas con 8 cañoneras. 
+        En la parte superior de la puerta podemos apreciar una matacaspa o saratana (defensa con granadas). 
+        Para la defensa de la puerta con granadas y fuego de artillería, tiene un espacio para el descenso y ascenso del rastrillo.
+        La puerta es de madera de jabín, con fajas de hierro. 
+        En la parte frontal se encuentra un revellín de mampostería que está protegido por un foso reducido de 3 m de profundidad. 
+        Originalmente poseía un puente levadizo con su rastrillo.
+        Actualmente existe una pequeña sala de exhibición donde podemos observar replicas de armas españolas, 
+        así como un gran cañón de bronce de origen francés encontrado en la costa del poblado de Lerma. 
+        Toda el área de la Puerta de Tierra y los lienzos de muralla que la unen con el Baluarte de San Francisco y de San Juan, 
+        es aprovechada para realizar un espectáculo de luz y sonido denominado “El Lugar del Sol”." data-en="Fue construida en 1732 por Don Antonio de Figueroa y Silva. 
+        Se encuentra entre el baluarte de San Francisco y San Juan. 
+        Posee una enorme bóveda con dos habitaciones para el cuerpo de guardia y el cuarto de oficial. 
+        Sobre la bóveda se encuentra una pequeña plaza de armas con 8 cañoneras. 
+        En la parte superior de la puerta podemos apreciar una matacaspa o saratana (defensa con granadas). 
+        Para la defensa de la puerta con granadas y fuego de artillería, tiene un espacio para el descenso y ascenso del rastrillo.
+        La puerta es de madera de jabín, con fajas de hierro. 
+        En la parte frontal se encuentra un revellín de mampostería que está protegido por un foso reducido de 3 m de profundidad. 
+        Originalmente poseía un puente levadizo con su rastrillo.
+        Actualmente existe una pequeña sala de exhibición donde podemos observar replicas de armas españolas, 
+        así como un gran cañón de bronce de origen francés encontrado en la costa del poblado de Lerma. 
+        Toda el área de la Puerta de Tierra y los lienzos de muralla que la unen con el Baluarte de San Francisco y de San Juan, 
+        es aprovechada para realizar un espectáculo de luz y sonido denominado “El Lugar del Sol”.">
+        Fue construida en 1732 por Don Antonio de Figueroa y Silva. 
+        Se encuentra entre el baluarte de San Francisco y San Juan. 
+        Posee una enorme bóveda con dos habitaciones para el cuerpo de guardia y el cuarto de oficial. 
+        Sobre la bóveda se encuentra una pequeña plaza de armas con 8 cañoneras. 
+        En la parte superior de la puerta podemos apreciar una matacaspa o saratana (defensa con granadas). 
+        Para la defensa de la puerta con granadas y fuego de artillería, tiene un espacio para el descenso y ascenso del rastrillo.
+        La puerta es de madera de jabín, con fajas de hierro. 
+        En la parte frontal se encuentra un revellín de mampostería que está protegido por un foso reducido de 3 m de profundidad. 
+        Originalmente poseía un puente levadizo con su rastrillo.
+        Actualmente existe una pequeña sala de exhibición donde podemos observar replicas de armas españolas, 
+        así como un gran cañón de bronce de origen francés encontrado en la costa del poblado de Lerma. 
+        Toda el área de la Puerta de Tierra y los lienzos de muralla que la unen con el Baluarte de San Francisco y de San Juan, 
+        es aprovechada para realizar un espectáculo de luz y sonido denominado “El Lugar del Sol”.
+    </h3>
+    <header>
+    <img src="img/Puerta_Tierra/Puerta_tierra2.jpeg">
+    <img src="img/Puerta_Tierra/Puerta_tierra3.jpeg">
+    </header><br><br>
+    <a href="https://maps.app.goo.gl/uUUSp4bboPdSGV7i6" class="boton-maps">
+    <button data-es="ir" data-en="Go">ir</button>
+    </a><br>
+    <a href="R_Peatonal.html" class="boton-maps">
+    <button data-es="sitios relevantes" data-en="relevant sites">sitios relevantes</button>
+    </a>
+</body>
+</html>

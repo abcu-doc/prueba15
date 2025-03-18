@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let idioma = localStorage.getItem("idioma") || "es";
+            cambiarIdioma(idioma);
+        });
+
+        function cambiarIdioma(idioma) {
+            localStorage.setItem("idioma", idioma);
+            
+            document.querySelectorAll("[data-es]").forEach(el => {
+                el.innerText = idioma === "es" ? el.getAttribute("data-es") : el.getAttribute("data-en");
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <button class="idioma1" onclick="cambiarIdioma('es')">Español</button>
+    <button class="idioma2" onclick="cambiarIdioma('en')">English</button>
+    <style>
+        body{
+            text-align: center;
+        }
+        .idioma1, .idioma2 {
+            width: 60px;
+            height: 30px;
+            border: none;
+            background-size: cover;
+            cursor: pointer;
+            margin: 20px 70px; /* Espacio entre botones */
+        }
+        .idioma1 {
+            background-image: url('img/Banderas/Band_mex.webp');
+        }
+        .idioma2 {
+            background-image: url('img/Banderas/Band_EU.png');
+        }
+        .boton-maps {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background: blue;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        /* Efecto de onda */
+        .boton-maps::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s, opacity 0.4s;
+            opacity: 0;
+        }
+
+        .boton-maps:active::after {
+            width: 200px;
+            height: 200px;
+            opacity: 1;
+        }
+        img{
+            width: 250px;
+            height: 200px; 
+        }
+    </style>
+    <h1 data-es="Ex templo y colegio San Jose" data-en="Former San José temple and school">
+        Ex templo y colegio San José</h1>
+    <h3 data-es="Ex Templo de San José. El lugar era ocupado antes de 1716 por una ermita dedicada al mismo santo, y custodiada por el gremio de calafates y carpinteros de la villa. 
+        Hacia el año de 1716 se estableció el colegio jesuita en Campeche. 
+        Los jesuitas hicieron de la ermita de calafates y carpinteros de San José, un templo único dentro el perfil colonial de Campeche, 
+        propio de la arquitectura jesuita, con características constructivas diferentes a los demás templos existentes en la villa. 
+        Sin embargo, su obra quedó inconclusa por la expulsión de su orden de territorios coloniales hacia 1767, 
+        no es sino a principios del siglo XIX que este templo de San José quedó concluido.
+        Es de una sola nave con forma de cruz latina. 
+        La portada se divide en 3 cuerpos. La bóveda es de aristas y descansa sobre un entablamento decorados con azulejos blancos y azules, 
+        al cual a su vez descansa sobre esbeltas pilastras. Posee vidrio talabaresco. Su cúpula es de media naranja coronada con una linternilla. 
+        La planta de la torre orientes es cuadrangular y en ella descansa el cuerpo del campanario que es de planta octagonal. 
+        La torre poniente es mucho más pequeña y alberga el faro que fue instalado en 1865. 
+        Fue utilizado para el culto religioso hasta 1914, después como bodega del Banco Rural y posteriormente se entregó al Instituto Campechano."
+        data-en="Former Temple of San José. The site was occupied before 1716 by a shrine dedicated to the same saint, and guarded by the town's guild of caulkers and carpenters.">
+        Ex Templo de San José. El lugar era ocupado antes de 1716 por una ermita dedicada al mismo santo, y custodiada por el gremio de calafates y carpinteros de la villa. 
+        Hacia el año de 1716 se estableció el colegio jesuita en Campeche. 
+        Los jesuitas hicieron de la ermita de calafates y carpinteros de San José, un templo único dentro el perfil colonial de Campeche, 
+        propio de la arquitectura jesuita, con características constructivas diferentes a los demás templos existentes en la villa. 
+        Sin embargo, su obra quedó inconclusa por la expulsión de su orden de territorios coloniales hacia 1767, 
+        no es sino a principios del siglo XIX que este templo de San José quedó concluido.
+        Es de una sola nave con forma de cruz latina. 
+        La portada se divide en 3 cuerpos. La bóveda es de aristas y descansa sobre un entablamento decorados con azulejos blancos y azules, 
+        al cual a su vez descansa sobre esbeltas pilastras. Posee vidrio talabaresco. Su cúpula es de media naranja coronada con una linternilla. 
+        La planta de la torre orientes es cuadrangular y en ella descansa el cuerpo del campanario que es de planta octagonal. 
+        La torre poniente es mucho más pequeña y alberga el faro que fue instalado en 1865. 
+        Fue utilizado para el culto religioso hasta 1914, después como bodega del Banco Rural y posteriormente se entregó al Instituto Campechano.
+    </h3>
+    <header>
+        <img src="img/San_Jose/San_Jose1.jpeg">
+        <img src="img/San_Jose/San_Jose3.jpg">
+        </header><br><br>
+        <a href="https://maps.app.goo.gl/8gjeFBv8dPtpGTu96" class="boton-maps">
+        <button data-es="ir" data-en="Go">ir</button>
+        </a><br>
+        <a href="R_Peatonal.html" class="boton-maps">
+        <button data-es="sitios relevantes" data-en="relevant sites">sitios relevantes</button>
+        </a>
+</body>
+</html>
